@@ -37,7 +37,7 @@ class tag extends \yii\db\ActiveRecord
     }
 
     public static function dropDownList(){
-        return ArrayHelper::map(self::find()->all(), 'id', 'user.login');
+        return ArrayHelper::map(self::find()->all(), 'id', 'user.username');
 
     }
 

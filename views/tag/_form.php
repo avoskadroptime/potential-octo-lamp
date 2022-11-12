@@ -16,8 +16,6 @@ use yii\helpers\ArrayHelper;
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'id_user')->textInput() ?>
 
-
-
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'id_user')->DropDownList(models\tag::dropDownList())?>
