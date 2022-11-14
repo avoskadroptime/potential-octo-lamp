@@ -40,6 +40,7 @@ AppAsset::register($this);
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'О проекте', 'url' => ['/site/about']],
             ['label' => 'Регистрация ', 'url' => ['/site/signup']],
+            ['label' => 'Мои Записи', 'url' => ['/site/posts']],
             ['label' => 'Палитра', 'url' => ['color-pallet/index']],
             ['label' => 'Помощь', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
@@ -49,7 +50,7 @@ AppAsset::register($this);
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
+                    ['class' => 'btn btn-link btn-primary logout']
                 )
                 . Html::endForm()
                 . '</li>'
@@ -66,8 +67,15 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+       <?= $content ?>
+
     </div>
+    <?php /*if (Yii::$app->user->isGuest){
+        include_once __DIR__ . '/views/site/main_guest.php';
+        include_once 'views/site/main_guest.php';
+    }
+
+               */?>
 </main>
 
 <footer class="footer mt-auto py-3 text-muted">

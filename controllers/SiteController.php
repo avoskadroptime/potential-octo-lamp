@@ -2,10 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\Post;
 use app\models\SignupForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -124,8 +126,24 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+
         return $this->render('about');
     }
+   /* public function actionPosts()
+    {
+        $posts = Post::find()->all();
+        return $this->render('all_posts', ['posts'=>$posts]);
+    }
+
+    public function actionOnePost($url)
+    {
+        if($post = Post::find()->andWhere(['id'=>$url])->one()){
+            return $this->render('onePost', ['post'=>$post]);
+        }
+        throw new NotFoundHttpException('ненайдено, ошибка');
+
+
+    }*/
 
     public function actionSignup(){
         $model = new SignupForm();

@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+use yii\db\ActiveQuery;
 use Yii;
 use yii\helpers\ArrayHelper;
 /**
@@ -61,5 +61,11 @@ class tag extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
+    }
+
+    public function getPosts()
+    {
+        return $this->hasMany(post::class, ['id'=>"id_post"])
+            ->viaTable('post_tag', ['id_tag'=>'id']);
     }
 }

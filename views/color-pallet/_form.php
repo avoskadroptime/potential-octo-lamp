@@ -11,28 +11,29 @@ use yii\widgets\ActiveForm;
 <div class="color-pallet-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <div> A</div>
 
     <?= $form->field($model, 'a', [
         'template' => "{input}"
 ])->input('color',['class'=>"form-control"]) ?>
 
-
+    <div> b</div>
     <?= $form->field($model, 'b', [
         'template' => "{input}"
     ])->input('color',['class'=>"form-control"]) ?>
-
+    <div> c</div>
     <?= $form->field($model, 'c', [
         'template' => "{input}"
     ])->input('color',['class'=>"form-control"]) ?>
-
+    <div> d</div>
     <?= $form->field($model, 'd', [
         'template' => "{input}"
     ])->input('color',['class'=>"form-control"]) ?>
-
+    <div> e</div>
     <?= $form->field($model, 'e', [
         'template' => "{input}"
     ])->input('color',['class'=>"form-control"]) ?>
-
+    <div> Menu</div>
     <?= $form->field($model, 'f', [
         'template' => "{input}"
     ])->input('color',['class'=>"form-control"]) ?>

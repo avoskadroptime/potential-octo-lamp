@@ -32,6 +32,7 @@ class picture extends \yii\db\ActiveRecord
         return [
             [['way', 'created_at', 'id_user'], 'required'],
             [['created_at'], 'safe'],
+            [['created_at'], 'default', 'value' => date('YYYY-mm-dd')],
             [['id_user'], 'integer'],
             [['way'], 'string', 'max' => 25],
         ];
