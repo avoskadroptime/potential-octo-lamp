@@ -4,6 +4,7 @@ use app\models\Post;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
+
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
@@ -35,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'picture',
             'audio',
             //'text:ntext',
-            //'created_at',
+            'created_at',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Post $model, $key, $index, $column) {
