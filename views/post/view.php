@@ -2,6 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\Post;
+use yii\helpers\Url;
+use kartik\editors\Summernote;
+use yii\grid\ActionColumn;
+use app\controllers;
+use yii\grid\GridView;
 
 /** @var yii\web\View $this */
 /** @var app\models\Post $model */
@@ -17,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Set Tags', ['set-tags', 'id' => $model->id], ['class' => 'btn btn-default']) ?>
+        <?= Html::a('Set Tags', ['set-tags', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -28,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
+//        'dataProvider' => $dataProvider,
         'model' => $model,
         'attributes' => [
             'id',
@@ -35,9 +42,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'picture',
             'audio',
-            'text:ntext',
+            'text',
             'created_at',
+            ['attribute' => 'selectedTags' , 'value' => $model->getTagsAsString()],
         ],
     ]) ?>
+
 
 </div>

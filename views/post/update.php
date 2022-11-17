@@ -12,10 +12,12 @@ $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="post-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?= Html::a('Добавить теги', ['set-tags', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
+
 
 </div>

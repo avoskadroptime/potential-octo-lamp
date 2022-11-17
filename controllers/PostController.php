@@ -15,6 +15,7 @@ use yii\filters\VerbFilter;
  */
 class PostController extends Controller
 {
+
     /**
      * @inheritDoc
      */
@@ -57,7 +58,11 @@ class PostController extends Controller
      */
     public function actionView($id)
     {
+        $searchModel = new PostSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
         return $this->render('view', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
             'model' => $this->findModel($id),
         ]);
     }
@@ -70,7 +75,7 @@ class PostController extends Controller
     public function actionCreate()
     {
         $model = new Post();
-
+        $model->created_at = date("Y-m-d");
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -137,7 +142,7 @@ class PostController extends Controller
     public function actionSetTags($id)
     {
         $post = $this->findModel($id);
-        $selectedTags = $post->getSelectedTags();;//
+        $selectedTags = $post->getSelectedTags();//
 
         $tags = ArrayHelper::map(tag::find()->all(), 'id', 'name') ;
 

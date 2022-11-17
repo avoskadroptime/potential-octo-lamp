@@ -10,7 +10,19 @@ main > .container {
     font-size: .9em;
     height: 60px;
 }
-
+.navbar{
+    background-color: white;
+}
+.popup-service {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: all 0.8s ease 0s;
+    background-color: #111111;
+}
 .footer > .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -84,4 +96,10 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+
+.select2-selection__rendered{
+    display: flex !important;
+    padding: 3px 12px 6px 12px !important;
 }

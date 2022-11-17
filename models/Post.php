@@ -82,10 +82,16 @@ class Post extends \yii\db\ActiveRecord
         //var_dump($selectedTags); die;
         return ArrayHelper::getColumn($selectedIds, 'id');
     }
+    public function getTagsAsString()
+    {
+        $arr = ArrayHelper::map($this->tags, "id", "name");
+        return implode(', ',$arr);
+    }
+
 
     public function saveTags($tags){
         if (is_array($tags)){
-           // PostTag::deleteAll(['post'=>$this->id]);
+           PostTag::deleteAll(['id_post'=>$this->id]);
             foreach ($tags as $id_tag){
                 $tag = tag::findOne($id_tag);
                 $this->link('tags', $tag);

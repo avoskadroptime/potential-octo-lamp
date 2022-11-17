@@ -25,7 +25,7 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 
-<header>
+<header >
     <?php
     NavBar::begin([
         'brandLabel' => 'Мой Журнал',

@@ -1,10 +1,12 @@
 <?php
+
 use app\models;
 use yii\helpers\Html;
 use app\controllers;
 use yii\widgets\ActiveForm;
 use yii\web\Controller;
 
+use kartik\select2\Select2;
 use app\controllers\PostController;
 
 /* @var $this yii\web\View
@@ -15,11 +17,38 @@ use app\controllers\PostController;
 ?>
 
 <div class="post-form">
+
+
     <?php $form = ActiveForm::begin(); ?>
-    <?= Html::dropDownList('tags', $selectedTags, $tags, ['class'=>'form-control', 'multiple'=>true]) ?>
+    <div class="mb-3">
+        <?php
+        // Tagging support Multiple
+        echo '<label class="control-label">Выбрать теги</label>';
+        echo   Select2::widget(  [
+            'name' => 'tags',
+            'value' => $selectedTags,
+            'data' => $tags,
+            'options' => ['placeholder' => 'Select a color ...', 'multiple' => true],
+            'pluginOptions' => [
+                //'tags' => true,
+                'tokenSeparators' => [',', ' '],
+                'maximumInputLength' => 10
+            ],
+        ])/*->label('Tag Multiple');*/ ;
+        ?>
+    </div>
+    <div> Чтобы добавить новый тег перейдите  <?= Html::a('по ссылке', 'http://pic:8080/potential-octo-lamp/web/index.php?r=tag%2Fcreate') ?> </div>
+
+
+
+
+   <!-- --><?/*= Html::dropDownList('tags', $selectedTags, $tags, ['class'=>'form-control', 'multiple'=>true]) */?>
     <div class="form-group">
-        <?= Html::submitButton('Submit', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 </div>
+
+
+

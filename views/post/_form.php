@@ -1,10 +1,12 @@
 <?php
-
+use kartik\select2\Select2;
+use kartik\date\DatePicker;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\bootstrap4;
+use kartik\editors\Summernote;
 
-use kartik\date\DatePicker;
+
 /** @var yii\web\View $this */
 /** @var app\models\Post $model */
 /** @var yii\widgets\ActiveForm $form */
@@ -15,7 +17,7 @@ use kartik\date\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user.tag')->textInput() ?>
+    <?= $form->field($model, 'id_user')->textInput() ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -23,7 +25,8 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'audio')->textInput() ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'text')->widget(Summernote::class, [
+        'useKrajeePresets' => true,]); ?>
 
     <?= $form->field($model, 'created_at')->widget(DatePicker::class,
         ['options' => [],
@@ -40,12 +43,6 @@ use kartik\date\DatePicker;
                 'todayHighlight' => true,
         ]
     ])?>
-
-<?php
-
-?>
-
-
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
