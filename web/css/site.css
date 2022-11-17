@@ -1,6 +1,19 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+}
+.div{
+    font-family: Ubuntu, sans-serif;
+}
+
 main > .container {
     padding: 70px 15px 20px;
 }
+main{
+    /*color: #47ff73 !important;*/
+    font-family: Ubuntu, sans-serif !important;
+}
+
 #w0-collapse{
     display: flex;
     justify-content: center;

@@ -1,5 +1,5 @@
 <?php
-
+use yii\i18n\Formatter;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use app\models\Post;
@@ -47,6 +47,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute' => 'selectedTags' , 'value' => $model->getTagsAsString()],
         ],
     ]) ?>
+
+    <!--//вывод через форматтер-->
+    <div class="h3  text-center p-4">Текст записи с форматированием</div>
+    <?= $txt = Yii::$app->formatter->asHtml($model->text, [
+        'Attr.AllowedRel' => ['nofollow'],
+        'HTML.SafeObject' => true,
+        'Output.FlashCompat' => true,
+        'HTML.SafeIframe' => true,
+        'AutoFormat.AutoParagraph' => true,
+        'URI.SafeIframeRegexp' => '%^(https?:)?//(www\.youtube(?:-nocookie)?\.com/embed/|player\.vimeo\.com/video/)%',
+    ]) ?>
+<!--*/вывод через эхо-->
+<?php //echo $model->text;?>
 
 
 </div>
