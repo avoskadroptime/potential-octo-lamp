@@ -33,6 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+
+
     <?= DetailView::widget([
 //        'dataProvider' => $dataProvider,
         'model' => $model,

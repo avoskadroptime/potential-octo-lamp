@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "mood_by_user".
@@ -70,5 +71,14 @@ class mood_by_user extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
+    }
+
+    public static function dropDownListUser(){
+        return ArrayHelper::map(User::find()->all(), 'id', 'username');
+
+    }
+    public static function dropDownListMood(){
+        return ArrayHelper::map(mood::find()->all(), 'id', 'description');
+
     }
 }

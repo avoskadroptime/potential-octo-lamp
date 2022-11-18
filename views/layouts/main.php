@@ -39,8 +39,11 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'О проекте', 'url' => ['/site/about']],
-            ['label' => 'Регистрация ', 'url' => ['/site/signup']],
-            ['label' => 'Мои Записи', 'url' => ['/site/posts']],
+            Yii::$app->user->isGuest ?(
+                     ['label' => 'Регистрация ', 'url' => ['/site/signup']]
+            ):
+            ['label' => 'Мои Записи', 'url' => ['/site/all-posts']],
+            ['label' => 'Mууд бай юзер', 'url' => ['/mood-by-user/index']],
             ['label' => 'Палитра', 'url' => ['color-pallet/index']],
             ['label' => 'Помощь', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
@@ -78,10 +81,9 @@ AppAsset::register($this);
                */?>
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
+<footer class="footer mt-auto py-3 text-muted bg-dark">
     <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
+        <p style="text-align: center"> ООО Мой Журнал</p>
     </div>
 </footer>
 

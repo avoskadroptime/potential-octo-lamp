@@ -7,7 +7,7 @@ use app\controllers;
 /** @var $post */
 $this->title = 'Все ваши записи';
 
-//\yii\helpers\VarDumper::dump($posts,10,true);
+\yii\helpers\VarDumper::dump($posts,10,true);
 ?>
 <h1>Все ваши записи </h1>
 <div class="row">

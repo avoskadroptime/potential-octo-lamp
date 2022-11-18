@@ -15,7 +15,7 @@ use yii\helpers\ArrayHelper;
 <div class="tag-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'id_user')->textInput() ?>
+<!--    --><?/*= $form->field($model, 'id_user')->textInput() */?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
