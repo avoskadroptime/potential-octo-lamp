@@ -11,18 +11,19 @@ use yii\helpers\Html;
 /** @var $post */
 $this->title = 'Все ваши записи';
 
-\yii\helpers\VarDumper::dump($posts,10,true);
+//\yii\helpers\VarDumper::dump($posts,10,true);
 ?>
 
 ddddd
-<h1>Все ваши записи </h1>
+<h1>Все записи из бд</h1>
 <div class="row">
     <?php foreach ($posts as $one): ?>
-        <div class="col-lg-4">
-            <div <!--href="onePost.php?id=  /*=$one->id*"-->><h2><?=$one->title?></h2></div>
-<?=$one->text?>
+        <div class="col-lg-4 onePost">
+            Пользователь = <?=$one->id_user?>
+            <div <!--href="onePost.php?id=  /*=$one->id*"--><h2><?=$one->title?></h2></div>
+            <?=$one->text?>
             <?/*= \yii\bootstrap4\Html::a('подробнее' .['site/OnePost','url'=>])   */?>
-
+        </div>
     </div>
 <?php endforeach;?>
 </div>

@@ -33,13 +33,13 @@ AppAsset::register($this);
         'options' => [
             'class' => 'navbar  navbar-expand-md navbar-light fixed-top',
         ],
-    ]);
-    echo Nav::widget([
+    ]);echo Nav::widget([
         'options' => ['class' => 'navbar-nav '],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'О проекте', 'url' => ['/site/about']],
-            ['label' => 'Мои Записи', 'url' => ['site/all-posts']],
+            ['label' => 'Все Записи', 'url' => ['/site/all-posts']],
+            ['label' => 'Мои Записи', 'url' => ['/site/users-posts']],
             ['label' => 'Mуд бай юзер', 'url' => ['/mood-by-user/index']],
             ['label' => 'Палитра', 'url' => ['color-pallet/index']],
             ['label' => 'Помощь', 'url' => ['/site/contact']],

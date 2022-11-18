@@ -264,7 +264,6 @@ main{
     text-align: center;
     color: #9FAABD;
 }
-
 .ili{
     margin: 44px auto;
     font-size: 20px;
@@ -274,10 +273,21 @@ main{
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    line-height: 0%;
+    line-height: 0;
     /* identical to box height, or 0px */
     text-align: justify;
     color: #628D57;
+}
+
+/*се посты*/
+.onePost{
+    margin-right: 4em;
+    margin-top: 4em;
+    width: 252px;
+    height: 303px;
+    background-color: #f6f6f6;
+    box-shadow: 0 0 25px -2px rgba(0, 0, 0, 0.17);
+    border-radius: 30px;
 }
 
 
@@ -291,11 +301,11 @@ main{
     transition: all 0.8s ease 0s;
     background-color: #111111;
 }
+
 .footer > .container  {
     padding-right: 15px;
     padding-left: 15px;
 }
-
 .not-set {
     color: #c55;
     font-style: italic;

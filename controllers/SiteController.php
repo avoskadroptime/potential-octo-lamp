@@ -9,6 +9,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
+use yii\db\ActiveRecord;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
@@ -132,7 +133,16 @@ class SiteController extends Controller
     public function actionAllPosts()
     {
         $posts = Post::find()->all();
-        return $this->render('all_posts', ['posts'=>$posts]);
+        return $this->render('all-posts', ['posts'=>$posts]);
+    }
+    public function actionUsersPosts(){
+        $id = Yii::$app->user->id;
+        $posts = Post::find()
+            ->where(['id_user'=> $id])
+            ->orderBy('created_at')
+            ->all();
+        ;
+        return $this->render('users-posts', ['posts'=>$posts]);
     }
 
     public function actionOnePost($url)
