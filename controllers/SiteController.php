@@ -129,7 +129,7 @@ class SiteController extends Controller
 
         return $this->render('about');
     }
-   /* public function actionPosts()
+    public function actionAllPosts()
     {
         $posts = Post::find()->all();
         return $this->render('all_posts', ['posts'=>$posts]);
@@ -143,7 +143,7 @@ class SiteController extends Controller
         throw new NotFoundHttpException('ненайдено, ошибка');
 
 
-    }*/
+    }
 
     public function actionSignup(){
         $model = new SignupForm();

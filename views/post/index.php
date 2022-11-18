@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'picture',
             'audio',
             ['attribute' => 'selectedTags' , 'value' => 'TagsAsString'],
-            //'text:ntext',
+            //'text:text',
             'created_at',
             [
                 'class' => ActionColumn::className(),

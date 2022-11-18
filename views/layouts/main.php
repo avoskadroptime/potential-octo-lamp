@@ -14,7 +14,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<html lang="<?= Yii::$app->language?>" class="h-100">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,13 +39,13 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'О проекте', 'url' => ['/site/about']],
-            Yii::$app->user->isGuest ?(
-                     ['label' => 'Регистрация ', 'url' => ['/site/signup']]
-            ):
-            ['label' => 'Мои Записи', 'url' => ['/site/all-posts']],
-            ['label' => 'Mууд бай юзер', 'url' => ['/mood-by-user/index']],
+            ['label' => 'Мои Записи', 'url' => ['site/all-posts']],
+            ['label' => 'Mуд бай юзер', 'url' => ['/mood-by-user/index']],
             ['label' => 'Палитра', 'url' => ['color-pallet/index']],
             ['label' => 'Помощь', 'url' => ['/site/contact']],
+            Yii::$app->user->isGuest ?(
+            ['label' => 'Регистрация ', 'url' => ['/site/signup']]
+            ):(Html::label( Yii::$app->user->id)),
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -70,6 +70,9 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
+        <!--<div class="LogonToSign_butt">
+            <a type="button" class=" btn" aria-pressed="true" href="web/allPosts.php"><div>Зарегистрироваться</div></a>
+        </div>-->
        <?= $content ?>
 
     </div>
