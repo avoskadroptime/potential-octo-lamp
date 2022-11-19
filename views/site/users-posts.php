@@ -11,10 +11,8 @@ $this->title = 'Все ваши записи';
 //\yii\helpers\VarDumper::dump($posts,10,true);
 //\yii\helpers\VarDumper::dump($one->selectedTags,10,true);
 ?>
-
 <h1>Все ваши записи в журнале</h1>
-<a class="btn btn-success" href="<?=Url::to(['post/create']);?>"> Создать новую запись</a>
-
+<a class="btn LoveButt" href="<?=Url::to(['post/create']);?>"><div>Создать новую запись</div> </a>
 <div class="row">
     <?php foreach ($posts as $one): ?>
     <div class="onePost">
@@ -28,8 +26,6 @@ $this->title = 'Все ваши записи';
         <?php if($one->getTagsAsString()!=Null) {?>
         <div  class="OnePost_tags rowPost_tags">#<?=$one->getTagsAsString()?></div><?php
         }?>
-
-
 </div>
 
 <?php endforeach;?>

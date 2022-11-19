@@ -1,10 +1,7 @@
-
-
-
 <?php
 use app\controllers;
 /** @var yii\web\View $this */
-
+use yii\helpers\Url;
 use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var $posts */
@@ -13,18 +10,22 @@ $this->title = 'Все ваши записи';
 
 //\yii\helpers\VarDumper::dump($posts,10,true);
 ?>
-
-ddddd
 <h1>Все записи из бд</h1>
 <div class="row">
     <?php foreach ($posts as $one): ?>
-        <div class="col-lg-4 onePost">
-            Пользователь = <?=$one->id_user?>
-            <div <!--href="onePost.php?id=  /*=$one->id*"--><h2><?=$one->title?></h2></div>
-            <?=$one->text?>
-
+        <div class="onePost">
+            <div class="UsersPost_inBlock">
+                <div class="OnePost_data rowPost_data"><?=$one->created_at?></div>
+                <a class="OnePost_title rowPost_title" href="<?=Url::to(['site/one-post', 'id' => $one->id]);?>"><h2><?=$one->title?></h2></a>
+                <div class="OnePost_text rowPost_text">
+                    <?=$one->text?>
+                </div>
+            </div>
+            <?php if($one->getTagsAsString()!=Null) {?>
+                <div  class="OnePost_tags rowPost_tags">#<?=$one->getTagsAsString()?></div><?php
+            }?>
         </div>
 
-<?php endforeach;?>
+    <?php endforeach;?>
 
 

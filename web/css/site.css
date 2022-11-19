@@ -333,6 +333,35 @@ main{
 
     color: #9FAABD !important;
 }
+.LoveButt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 13px 1px rgb(220, 206, 189);
+    width: 200px;
+    height: 20px;
+    margin-top: 2em;
+    background: #ffcdb5;
+    border-radius: 15px;
+    font-family: 'Ubuntu' , sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 0;
+    /* identical to box height, or 0px */
+    text-align: center;
+    color: #b45737;
+}
+.LoveButt:hover{
+    background-color: #ffb8a0;
+    box-shadow:0 0 30px 3px #ffb4b4;
+    color: #FFFFFF;
+
+
+
+
+}
+
 
 
 
