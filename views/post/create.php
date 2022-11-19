@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-    <?= Html::a('Set Tags', ['set-tags', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+
 
     <?php
    /* echo Select2::widget([

@@ -22,9 +22,9 @@ ddddd
             Пользователь = <?=$one->id_user?>
             <div <!--href="onePost.php?id=  /*=$one->id*"--><h2><?=$one->title?></h2></div>
             <?=$one->text?>
-            <?/*= \yii\bootstrap4\Html::a('подробнее' .['site/OnePost','url'=>])   */?>
+
         </div>
-    </div>
+
 <?php endforeach;?>
-</div>
+
 

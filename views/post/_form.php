@@ -5,8 +5,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\bootstrap4;
 use kartik\editors\Summernote;
+use app\assets\AppAsset;
 
-
+//Yii::$app->user->isGuest ? ($form->field($model, 'id_user')->textInput()) : ($form->field($model, 'text'))->textInput(['value' => Yii::$app->user->id])
 /** @var yii\web\View $this */
 /** @var app\models\Post $model */
 /** @var yii\widgets\ActiveForm $form */
@@ -16,8 +17,9 @@ use kartik\editors\Summernote;
     <div class="post-form">
 
     <?php $form = ActiveForm::begin(); ?>
+        <?= $form->field($model, 'id_user')->textInput() ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

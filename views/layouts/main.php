@@ -38,14 +38,16 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
             ['label' => 'О проекте', 'url' => ['/site/about']],
-            ['label' => 'Все Записи', 'url' => ['/site/all-posts']],
+            Yii::$app->user->isGuest ?(
+            ['label' => 'Все Записи', 'url' => ['/site/all-posts']]
+            ):(Html::label( '')),
             ['label' => 'Мои Записи', 'url' => ['/site/users-posts']],
             ['label' => 'Mуд бай юзер', 'url' => ['/mood-by-user/index']],
             ['label' => 'Палитра', 'url' => ['color-pallet/index']],
             ['label' => 'Помощь', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ?(
             ['label' => 'Регистрация ', 'url' => ['/site/signup']]
-            ):(Html::label( Yii::$app->user->id)),
+            ):(Html::label( '')),
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

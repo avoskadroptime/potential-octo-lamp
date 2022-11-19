@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "post".
@@ -85,7 +86,7 @@ class Post extends \yii\db\ActiveRecord
     public function getTagsAsString()
     {
         $arr = ArrayHelper::map($this->tags, "id", "name");
-        return implode(', ',$arr);
+        return implode(' #', $arr);
     }
 
 

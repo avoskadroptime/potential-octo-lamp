@@ -135,6 +135,7 @@ class SiteController extends Controller
         $posts = Post::find()->all();
         return $this->render('all-posts', ['posts'=>$posts]);
     }
+
     public function actionUsersPosts(){
         $id = Yii::$app->user->id;
         $posts = Post::find()
@@ -145,10 +146,10 @@ class SiteController extends Controller
         return $this->render('users-posts', ['posts'=>$posts]);
     }
 
-    public function actionOnePost($url)
+    public function actionOnePost($id)
     {
-        if($post = Post::find()->andWhere(['id'=>$url])->one()){
-            return $this->render('onePost', ['post'=>$post]);
+        if($post = Post::find()->andWhere(['id'=>$id])->one()){
+            return $this->render('one-post', ['post'=>$post]);
         }
         throw new NotFoundHttpException('ненайдено, ошибка');
 
