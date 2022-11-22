@@ -75,7 +75,28 @@ AppAsset::register($this);
         <!--<div class="LogonToSign_butt">
             <a type="button" class=" btn" aria-pressed="true" href="web/allPosts.php"><div>Зарегистрироваться</div></a>
         </div>-->
-       <?= $content ?>
+        <div class="row">
+            <div class="col-3 align-self-start">
+                Одна из трёх колонок
+                <div class="left-nav-inst d-flex flex-md-column">
+                    <div class="big-title">Инструменты</div>
+                    <a href="#">Новая запись</a>
+                    <a href="#">Настроение</a>
+                    <a href="#">Создать тег</a>
+                </div>
+                <div class="left-nav-Menu d-flex flex-md-column">
+                    <div class="big-title">Меню</div>
+                    <a href="#">Все записи</a>
+                    <a href="#">Стистика по настроению</a>
+                    <a href="#">Все записи</a>
+                    <a href="#">Палитры</a>
+                </div>
+            </div>
+            <div class="col-9 ">
+                 из трёх колонок
+                <?= $content ?>
+            </div>
+
 
     </div>
     <?php /*if (Yii::$app->user->isGuest){
