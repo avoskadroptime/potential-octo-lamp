@@ -12,6 +12,7 @@ use yii\web\Response;
 use yii\db\ActiveRecord;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\mood_by_user;
 use app\models\ContactForm;
 
 class SiteController extends Controller
@@ -25,7 +26,7 @@ class SiteController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout'],
-                'rules' => [
+                'rules' => [+
                     [
                         'actions' => ['logout'],
                         'allow' => true,
@@ -140,7 +141,7 @@ class SiteController extends Controller
         $id = Yii::$app->user->id;
         $posts = Post::find()
             ->where(['id_user'=> $id])
-            ->orderBy('created_at')
+            ->orderBy('id')
             ->all();
         ;
         return $this->render('users-posts', ['posts'=>$posts]);
@@ -152,7 +153,6 @@ class SiteController extends Controller
             return $this->render('one-post', ['post'=>$post]);
         }
         throw new NotFoundHttpException('ненайдено, ошибка');
-
 
     }
 

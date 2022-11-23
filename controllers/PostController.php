@@ -159,10 +159,5 @@ class PostController extends Controller
             'tags' => $tags,
 
         ]);
-        /*
-        $tag = tag::findOne(1);
-        var_dump($tag->posts);*/
-        /*$model = $this->findModel($id);
-        var_dump($model->tags);*/
     }
 }

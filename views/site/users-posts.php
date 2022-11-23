@@ -18,7 +18,8 @@ $this->title = 'Все ваши записи';
     <div class="onePost">
         <div class="UsersPost_inBlock">
             <div class="OnePost_data rowPost_data"><?=$one->created_at?></div>
-            <a class="OnePost_title rowPost_title" href="<?=Url::to(['site/one-post', 'id' => $one->id]);?>"><h2><?=$one->title?></h2></a>
+            <a class="OnePost_title rowPost_title" href="<?=Url::to(['site/one-post', 'id' => $one->id]);?>">
+                <h2><?=$one->title?></h2></a>
             <div class="OnePost_text rowPost_text">
                 <?=$one->text?>
             </div>
@@ -27,6 +28,5 @@ $this->title = 'Все ваши записи';
         <div  class="OnePost_tags rowPost_tags">#<?=$one->getTagsAsString()?></div><?php
         }?>
 </div>
-
 <?php endforeach;?>
 

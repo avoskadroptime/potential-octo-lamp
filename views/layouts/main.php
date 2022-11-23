@@ -2,15 +2,18 @@
 
 /** @var yii\web\View $this */
 /** @var string $content */
-
+/*['label' => 'О проекте', 'url' => ['/site/about']],*/
 use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
-
+use yii\helpers\Url;
 AppAsset::register($this);
+$url = $_SERVER['REQUEST_URI'];
+$url = explode('?', $url);
+$url = $url[0];
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -37,7 +40,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav '],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'О проекте', 'url' => ['/site/about']],
+
             Yii::$app->user->isGuest ?(
             ['label' => 'Все Записи', 'url' => ['/site/all-posts']]
             ):(Html::label( '')),
@@ -75,25 +78,28 @@ AppAsset::register($this);
         <!--<div class="LogonToSign_butt">
             <a type="button" class=" btn" aria-pressed="true" href="web/allPosts.php"><div>Зарегистрироваться</div></a>
         </div>-->
-        <div class="row">
-            <div class="col-3 align-self-start">
-                Одна из трёх колонок
+        <div class="row left-panel">
+            <?php if (Yii::$app->user->isGuest == false){?>
+            <div class="col-3 align-self-start ooo">
                 <div class="left-nav-inst d-flex flex-md-column">
                     <div class="big-title">Инструменты</div>
-                    <a href="#">Новая запись</a>
-                    <a href="#">Настроение</a>
-                    <a href="#">Создать тег</a>
+                    <ul class="left-nav-desc">
+                        <li><a href="<?=Url::to(['/views/post/create']);?>">Новая запись</a></li>
+                        <li><a href="<?=Url::to(['/views/mood-by-user/create']);?>">new Настроение</a></li>
+                        <li><a href="<?=Url::to(['/views/post/tags']);?>">Создать тег</a></li>
+                    </ul>
                 </div>
                 <div class="left-nav-Menu d-flex flex-md-column">
                     <div class="big-title">Меню</div>
-                    <a href="#">Все записи</a>
-                    <a href="#">Стистика по настроению</a>
-                    <a href="#">Все записи</a>
-                    <a href="#">Палитры</a>
+                    <ul class="left-nav-desc">
+                        <li><a href="<?=Url::to(['/site/users-posts'], true);?>">Все записи</a></li>
+                        <li><a href="<?=Url::to(['../mood-by-user/index'], true);?>">My moods</a></li>
+                        <li><a href="<?=Url::to(['../color-pallet/index']);?>">Палитры</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-9 ">
-                 из трёх колонок
+            <?php }?>
+            <div class="col">
                 <?= $content ?>
             </div>
 
