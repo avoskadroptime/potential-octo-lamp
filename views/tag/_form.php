@@ -19,7 +19,7 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_user')->DropDownList(models\tag::dropDownList())?>
+    <?php // $form->field($model, 'id_user')->DropDownList(models\tag::dropDownList())?>
 
 
     <div class="form-group">

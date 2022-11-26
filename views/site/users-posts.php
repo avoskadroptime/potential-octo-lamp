@@ -21,7 +21,10 @@ $this->title = 'Все ваши записи';
             <a class="OnePost_title rowPost_title" href="<?=Url::to(['site/one-post', 'id' => $one->id]);?>">
                 <h2><?=$one->title?></h2></a>
             <div class="OnePost_text rowPost_text">
-                <?=$one->text?>
+                <?php $lilo = strip_tags($one->text)?>
+
+                <?= Html::encode($lilo = \yii\helpers\StringHelper::truncate($lilo, 150, '...')); ?>
+
             </div>
         </div>
         <?php if($one->getTagsAsString()!=Null) {?>

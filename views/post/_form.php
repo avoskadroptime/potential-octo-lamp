@@ -17,9 +17,9 @@ use app\assets\AppAsset;
     <div class="post-form">
 
     <?php $form = ActiveForm::begin(); ?>
-        <?= $form->field($model, 'id_user')->textInput() ?>
 
 
+        <?php // $form->field($model, 'id_user')->input('number', ['value'=>\Yii::$app->user->identity->id]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

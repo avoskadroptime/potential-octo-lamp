@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Post;
 use app\models\PostSearch;
+use Yii;
 use app\models\tag;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -76,9 +77,10 @@ class PostController extends Controller
     {
         $model = new Post();
         $model->created_at = date("Y-m-d");
+        $model->id_user = \Yii::$app->user->identity->id;
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['site/one-post', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -101,7 +103,7 @@ class PostController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['site/one-post', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -142,10 +144,16 @@ class PostController extends Controller
     public function actionSetTags($id)
     {
         $post = $this->findModel($id);
+        $id_user = \Yii::$app->user->identity->id;
         $selectedTags = $post->getSelectedTags();//
 
-        $tags = ArrayHelper::map(tag::find()->all(), 'id', 'name') ;
+        $tags1 = tag::find()
+            ->where(['id_user'=> $id_user])
+            ->orderBy('id')
+            ->all();
+        ;
 
+        $tags = ArrayHelper::map($tags1, 'id', 'name') ;
 
         if(\Yii::$app->request->isPost)
         {

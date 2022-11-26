@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\Url;
 use app\models;
 use yii\helpers\Html;
 use app\controllers;
@@ -28,7 +28,7 @@ use app\controllers\PostController;
             'name' => 'tags',
             'value' => $selectedTags,
             'data' => $tags,
-            'options' => ['placeholder' => 'Select a color ...', 'multiple' => true],
+            'options' => ['placeholder' => 'Выбрать тег ...', 'multiple' => true],
             'pluginOptions' => [
                 //'tags' => true,
                 'tokenSeparators' => [',', ' '],
@@ -37,10 +37,7 @@ use app\controllers\PostController;
         ])/*->label('Tag Multiple');*/ ;
         ?>
     </div>
-    <div> Чтобы добавить новый тег перейдите  <?= Html::a('по ссылке', 'http://pic:8080/potential-octo-lamp/web/index.php?r=tag%2Fcreate') ?> </div>
-
-
-
+    <div> Чтобы добавить новый тег перейдите  <?= Html::a('по ссылке', Url::to(['/tag/create'])) ?> </div>
 
    <!-- --><?/*= Html::dropDownList('tags', $selectedTags, $tags, ['class'=>'form-control', 'multiple'=>true]) */?>
     <div class="form-group">

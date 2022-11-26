@@ -14,6 +14,8 @@ AppAsset::register($this);
 $url = $_SERVER['REQUEST_URI'];
 $url = explode('?', $url);
 $url = $url[0];
+
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -39,12 +41,14 @@ $url = $url[0];
     ]);echo Nav::widget([
         'options' => ['class' => 'navbar-nav '],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
 
+            Yii::$app->user->isGuest ?(
+            ['label' => 'Главная', 'url' => ['/site/index']]
+            ):(Html::label( '')),
             Yii::$app->user->isGuest ?(
             ['label' => 'Все Записи', 'url' => ['/site/all-posts']]
             ):(Html::label( '')),
-            ['label' => 'Мои Записи', 'url' => ['/site/users-posts']],
+            ['label' => 'Главная', 'url' => ['/site/users-posts']],
             ['label' => 'Mуд бай юзер', 'url' => ['/mood-by-user/index']],
             ['label' => 'Палитра', 'url' => ['color-pallet/index']],
             ['label' => 'Помощь', 'url' => ['/site/contact']],
@@ -79,27 +83,28 @@ $url = $url[0];
             <a type="button" class=" btn" aria-pressed="true" href="web/allPosts.php"><div>Зарегистрироваться</div></a>
         </div>-->
         <div class="row left-panel">
-            <?php if (Yii::$app->user->isGuest == false){?>
+            <?php if ((Yii::$app->user->isGuest == false)&&($url == '/potential-octo-lamp/web/site/users-posts')){?>
             <div class="col-3 align-self-start ooo">
                 <div class="left-nav-inst d-flex flex-md-column">
                     <div class="big-title">Инструменты</div>
                     <ul class="left-nav-desc">
-                        <li><a href="<?=Url::to(['/views/post/create']);?>">Новая запись</a></li>
-                        <li><a href="<?=Url::to(['/views/mood-by-user/create']);?>">new Настроение</a></li>
-                        <li><a href="<?=Url::to(['/views/post/tags']);?>">Создать тег</a></li>
+                        <li><a href="<?=Url::to(['/post/create']);?>">Новая запись</a></li>
+                        <li><a href="<?=Url::to(['/mood-by-user/create']);?>">new Настроение</a></li>
+                        <li><a href="<?=Url::to(['/post/tags']);?>">Создать тег</a></li>
                     </ul>
                 </div>
                 <div class="left-nav-Menu d-flex flex-md-column">
                     <div class="big-title">Меню</div>
                     <ul class="left-nav-desc">
                         <li><a href="<?=Url::to(['/site/users-posts'], true);?>">Все записи</a></li>
-                        <li><a href="<?=Url::to(['../mood-by-user/index'], true);?>">My moods</a></li>
-                        <li><a href="<?=Url::to(['../color-pallet/index']);?>">Палитры</a></li>
+                        <li><a href="<?=Url::to(['/mood-by-user/index'], true);?>">My moods</a></li>
+                        <li><a href="<?=Url::to(['/color-pallet/index']);?>">Палитры</a></li>
                     </ul>
                 </div>
             </div>
             <?php }?>
             <div class="col">
+                <?php echo $url; ?>
                 <?= $content ?>
             </div>
 

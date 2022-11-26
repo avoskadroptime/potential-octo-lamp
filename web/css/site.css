@@ -2,15 +2,23 @@
     font-family: Ubuntu;
     src: url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 }
-.div{
+div, p{
     font-family: Ubuntu, sans-serif;
 }
 
+.navbar-collapse{
+    justify-content: center;
+}
+.select2-container--krajee-bs4 .select2-selection--multiple, .select2-dropdown {
+    min-height: 2.4rem;
+    max-width: 360px;
+}
 main > .container {
     padding: 70px 15px 20px;
 }
 main{
     /*color: #47ff73 !important;*/
+
     font-family: Ubuntu, sans-serif !important;
 }
 *{
@@ -43,7 +51,7 @@ main{
     height: 60px;
 }
 .navbar{
-    background-color: white;
+    background-color: #ffffff;
 }
 .ooo{
     position: sticky;
@@ -55,7 +63,7 @@ main{
     height: 193px;
 
     background: linear-gradient(180deg, #F9F9F7 0%, rgba(249, 249, 247, 0) 100%), #E9EAEA;
-    box-shadow: 0px 5px 27px 3px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 5px 27px 3px rgba(0, 0, 0, 0.17);
     border-radius: 30px 30px 0 0;
 }
 .left-nav-Menu{
@@ -85,6 +93,10 @@ main{
     font-size: 16px;
     line-height: 16px;
     color: #393A5A}
+
+.navbar-brand{
+    font-weight: bold !important;
+}
 
 
 /*Регистрация*/
@@ -400,12 +412,26 @@ main{
 
 
 /*viewOnePostPages*/
+.OnePost_butt{
+    display: flex;
+    gap: 35px;
+
+}
+.OnePost_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
 .viewOnePost{
+
     margin-left: 50px;
-    margin-top: 100px;
+    margin-top: 25px;
     max-width: 817px;
     min-height: 300px;
-    background: #E9E9E9;
+
+    background: linear-gradient(180deg, #F9F9F7 0%, rgba(249, 249, 247, 0) 100%), #E9EAEA;
+    box-shadow: 0px 5px 27px 3px rgba(0, 0, 0, 0.17);
     backdrop-filter: blur(2px);
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 31px;

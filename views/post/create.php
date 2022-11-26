@@ -18,7 +18,7 @@ use app\controllers\PostController;
 /** @var yii\web\View $this */
 /** @var app\models\Post $model */
 
-$this->title = 'Create Post';
+$this->title = 'Создать запись';
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+
     ]) ?>
 
 

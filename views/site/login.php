@@ -6,6 +6,7 @@
 
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
+use yii\helpers\Url;
 
 $this->title = 'Вход';
 $this->params['breadcrumbs'][] = $this->title;
@@ -43,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <p class="login_d_text ili">Или</p>
     <div class="LogonToSign_butt">
-        <a type="button" class=" btn" aria-pressed="true" href="http://pic:8080/potential-octo-lamp/web/index.php?r=site%2Fsignup"><div>Зарегистрироваться</div></a>
+        <a type="button" class=" btn" aria-pressed="true" href="http://mmm/potential-octo-lamp<?=Url::to('/web/site/signup')?>"><div>Зарегистрироваться</div></a>
     </div>
     <!--<div class="offset-lg-1" style="color:#999;">
         You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
