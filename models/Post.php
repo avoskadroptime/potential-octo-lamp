@@ -89,6 +89,21 @@ class Post extends \yii\db\ActiveRecord
         return implode(' #', $arr);
     }
 
+    public static function tags(){
+        $id_user = \Yii::$app->user->identity->id;
+        $tags1 = tag::find()
+            ->where(['id_user'=> $id_user])
+            ->orderBy('name')
+            ->all();
+        ;
+
+
+        return $tags = ArrayHelper::index($tags1, 'id');
+
+        //return $tags = ArrayHelper::map($tags1, 'id', 'name') ;
+
+    }
+
 
     public function saveTags($tags){
         if (is_array($tags)){

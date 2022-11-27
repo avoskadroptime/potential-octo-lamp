@@ -141,6 +141,8 @@ class PostController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
+
+
     public function actionSetTags($id)
     {
         $post = $this->findModel($id);
@@ -149,7 +151,7 @@ class PostController extends Controller
 
         $tags1 = tag::find()
             ->where(['id_user'=> $id_user])
-            ->orderBy('id')
+            ->orderBy('name')
             ->all();
         ;
 
@@ -159,8 +161,9 @@ class PostController extends Controller
         {
             $tags = \Yii::$app->request->post('tags');
             $post->saveTags($tags);
-            return $this->redirect(['view', 'id'=>$post->id] );
+            return $this->redirect(['site/one-post', 'id'=>$post->id] );
         }
+
 
         return $this->render('tags',[
             'selectedTags' => $selectedTags,

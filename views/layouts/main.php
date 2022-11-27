@@ -3,6 +3,10 @@
 /** @var yii\web\View $this */
 /** @var string $content */
 /*['label' => 'О проекте', 'url' => ['/site/about']],*/
+/** @var yii\web\View $this */
+/** @var yii\web\View $this */
+/** @var $posts */
+/** @var $post */
 use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\bootstrap4\Breadcrumbs;
@@ -10,12 +14,15 @@ use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 use yii\helpers\Url;
+use app\models\Post;
+use app\models;
 AppAsset::register($this);
 $url = $_SERVER['REQUEST_URI'];
 $url = explode('?', $url);
 $url = $url[0];
+$tags =  Post::tags();
 
-
+\yii\helpers\VarDumper::dump($tags);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -101,10 +108,22 @@ $url = $url[0];
                         <li><a href="<?=Url::to(['/color-pallet/index']);?>">Палитры</a></li>
                     </ul>
                 </div>
+                <div class="left-nav-Menu d-flex flex-md-column">
+                    <div class="big-title">Теги</div>
+                    <ul class="left-nav-desc">
+                        <?php foreach ($tags as $one): ?>
+
+                        <li><a href="<?=Url::to(['by-tag', 'id' => $one->id], true);?>"><?=$one->name?></a></li>
+
+                        <?php endforeach;?>
+                    </ul>
+                </div>
             </div>
             <?php }?>
             <div class="col">
-                <?php echo $url; ?>
+                <?php echo $url;
+                \yii\helpers\VarDumper::dump($tags);
+                ?>
                 <?= $content ?>
             </div>
 

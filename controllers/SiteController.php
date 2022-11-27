@@ -3,9 +3,12 @@
 namespace app\controllers;
 
 use app\models\Post;
+use app\models\PostTag;
 use app\models\SignupForm;
+use app\models\tag;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -141,7 +144,8 @@ class SiteController extends Controller
         $id = Yii::$app->user->id;
         $posts = Post::find()
             ->where(['id_user'=> $id])
-            ->orderBy('id')
+            ->orderBy('`post`.`id` desc')
+
             ->all();
         ;
         return $this->render('users-posts', ['posts'=>$posts]);
@@ -149,12 +153,32 @@ class SiteController extends Controller
 
     public function actionOnePost($id)
     {
-        if($post = Post::find()->andWhere(['id'=>$id])->one()){
+        if($post = Post::find()->andWhere(['id'=>$id] )->one()){
             return $this->render('one-post', ['post'=>$post]);
         }
         throw new NotFoundHttpException('ненайдено, ошибка');
 
     }
+    public function actionByTag($id){
+        //$id = Yii::$app->user->id;
+        $id_post = PostTag::find()->select(['id_post'])->where(['id_tag'=> 6])->all();
+       // var_dump($id_post);
+
+        $posts = PostTag::find()
+            ->where(['id_tag' => $id])
+            //->orderBy('`post`.`id` desc')
+            ->from('post_tag')
+            ->select('post.id')
+            ->innerJoinWith('post' , 'post.id = post_tag.id_post')
+        //Customers ON Orders.CustomerID=Customers.CustomerID
+
+            ->all();
+        ;
+        \yii\helpers\VarDumper::dump($posts,10,true);
+        //return $this->render('one-post', ['posts'=>$posts]);
+    }
+
+
 
     public function actionSignup(){
         $model = new SignupForm();
