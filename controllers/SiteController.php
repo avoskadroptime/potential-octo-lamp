@@ -162,7 +162,7 @@ class SiteController extends Controller
     public function actionByTag($id){
         //$id = Yii::$app->user->id;
         $id_post = PostTag::find()->select(['id_post'])->where(['id_tag'=> 6])->all();
-       // var_dump($id_post);
+
 
         $posts = PostTag::find()
             ->where(['id_tag' => $id])
@@ -174,7 +174,7 @@ class SiteController extends Controller
 
             ->all();
         ;
-        \yii\helpers\VarDumper::dump($posts,10,true);
+
         //return $this->render('one-post', ['posts'=>$posts]);
     }
 

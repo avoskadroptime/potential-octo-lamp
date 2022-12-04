@@ -22,7 +22,7 @@ $url = explode('?', $url);
 $url = $url[0];
 $tags =  Post::tags();
 
-\yii\helpers\VarDumper::dump($tags);
+//\yii\helpers\VarDumper::dump($tags);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -52,12 +52,8 @@ $tags =  Post::tags();
             Yii::$app->user->isGuest ?(
             ['label' => 'Главная', 'url' => ['/site/index']]
             ):(Html::label( '')),
-            Yii::$app->user->isGuest ?(
-            ['label' => 'Все Записи', 'url' => ['/site/all-posts']]
-            ):(Html::label( '')),
-            ['label' => 'Главная', 'url' => ['/site/users-posts']],
-            ['label' => 'Mуд бай юзер', 'url' => ['/mood-by-user/index']],
-            ['label' => 'Палитра', 'url' => ['color-pallet/index']],
+            Yii::$app->user->isGuest ?(Html::label( '')
+            ):(['label' => 'Главная', 'url' => ['/site/users-posts']]),
             ['label' => 'Помощь', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ?(
             ['label' => 'Регистрация ', 'url' => ['/site/signup']]
@@ -92,7 +88,7 @@ $tags =  Post::tags();
         <div class="row left-panel">
             <?php if ((Yii::$app->user->isGuest == false)&&($url == '/potential-octo-lamp/web/site/users-posts')){?>
             <div class="col-3 align-self-start ooo">
-                <div class="left-nav-inst d-flex flex-md-column">
+                <div class="left-nav-inst d-flex flex-md-column left-nav-panel">
                     <div class="big-title">Инструменты</div>
                     <ul class="left-nav-desc">
                         <li><a href="<?=Url::to(['/post/create']);?>">Новая запись</a></li>
@@ -100,7 +96,7 @@ $tags =  Post::tags();
                         <li><a href="<?=Url::to(['/post/tags']);?>">Создать тег</a></li>
                     </ul>
                 </div>
-                <div class="left-nav-Menu d-flex flex-md-column">
+                <div class="left-nav-Menu d-flex flex-md-column left-nav-panel">
                     <div class="big-title">Меню</div>
                     <ul class="left-nav-desc">
                         <li><a href="<?=Url::to(['/site/users-posts'], true);?>">Все записи</a></li>
@@ -108,7 +104,7 @@ $tags =  Post::tags();
                         <li><a href="<?=Url::to(['/color-pallet/index']);?>">Палитры</a></li>
                     </ul>
                 </div>
-                <div class="left-nav-Menu d-flex flex-md-column">
+                <div class="left-nav-tags d-flex flex-md-column left-nav-panel">
                     <div class="big-title">Теги</div>
                     <ul class="left-nav-desc">
                         <?php foreach ($tags as $one): ?>
@@ -121,8 +117,8 @@ $tags =  Post::tags();
             </div>
             <?php }?>
             <div class="col">
-                <?php echo $url;
-                \yii\helpers\VarDumper::dump($tags);
+                <?php // echo $url;
+                //\yii\helpers\VarDumper::dump($tags);
                 ?>
                 <?= $content ?>
             </div>

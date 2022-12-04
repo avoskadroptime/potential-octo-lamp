@@ -54,26 +54,29 @@ main{
     background-color: #ffffff;
 }
 .ooo{
+
     position: sticky;
     top: 45px;
 }
+.left-nav-panel{
+    min-height: 160px;
+    max-width: 200px;
+    background: linear-gradient(180deg, #F9F9F7 0%, rgba(249, 249, 247, 0) 100%), #E9EAEA;
+}
 .left-nav-inst{
     margin-top: 45px;
-    width: 200px;
-    height: 193px;
-
-    background: linear-gradient(180deg, #F9F9F7 0%, rgba(249, 249, 247, 0) 100%), #E9EAEA;
-    box-shadow: 0 5px 27px 3px rgba(0, 0, 0, 0.17);
     border-radius: 30px 30px 0 0;
+    box-shadow: 0 5px 27px 3px rgba(0, 0, 0, 0.17);
 }
 .left-nav-Menu{
     margin-top: 12px;
-    width: 200px;
-    height: 193px;
-
     background: linear-gradient(180deg, #F9F9F7 0%, rgba(249, 249, 247, 0) 100%), #E9EAEA;
     box-shadow: 0 25px 25px -2px rgba(0, 0, 0, 0.17);
+}
+.left-nav-tags{
+    margin-top: 12px;
     border-radius: 0 0 30px 30px;
+    box-shadow: 0 25px 25px -2px rgba(0, 0, 0, 0.17);
 }
 .big-title{
     font-family: 'Montserrat', sans-serif;
@@ -85,7 +88,7 @@ main{
     margin-bottom: 10px;
     margin-left: 33px;
 }
-.left-nav-desc{margin-left: 12px;}
+.left-nav-desc{margin-left: 12px; width: 200px;}
 .left-nav-desc a{
     font-family: 'Ubuntu', sans-serif;
     font-style: normal;
