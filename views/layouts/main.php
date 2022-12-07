@@ -93,7 +93,7 @@ $tags =  Post::tags();
                     <ul class="left-nav-desc">
                         <li><a href="<?=Url::to(['/post/create']);?>">Новая запись</a></li>
                         <li><a href="<?=Url::to(['/mood-by-user/create']);?>">new Настроение</a></li>
-                        <li><a href="<?=Url::to(['/post/tags']);?>">Создать тег</a></li>
+                        <li><a href="<?=Url::to(['/tag/create']);?>">Создать тег</a></li>
                     </ul>
                 </div>
                 <div class="left-nav-Menu d-flex flex-md-column left-nav-panel">
@@ -108,18 +108,13 @@ $tags =  Post::tags();
                     <div class="big-title">Теги</div>
                     <ul class="left-nav-desc">
                         <?php foreach ($tags as $one): ?>
-
                         <li><a href="<?=Url::to(['by-tag', 'id' => $one->id], true);?>"><?=$one->name?></a></li>
-
                         <?php endforeach;?>
                     </ul>
                 </div>
             </div>
             <?php }?>
             <div class="col">
-                <?php // echo $url;
-                //\yii\helpers\VarDumper::dump($tags);
-                ?>
                 <?= $content ?>
             </div>
 

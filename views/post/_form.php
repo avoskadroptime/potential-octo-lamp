@@ -34,8 +34,6 @@ use app\assets\AppAsset;
         ['options' => [],
             'name' => 'birth_date',
             'language' => 'ru',
-            //'value' => date('d-m-Y H:i',time()),
-            //'type' => DateControl::FORMAT_DATE,
             'value'=> 'today',
             'pluginOptions' => [
                 'autoclose' => true,

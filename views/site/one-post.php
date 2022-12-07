@@ -24,6 +24,5 @@ $this->title = 'Просмотр записи';
         <?= Html::a('Добавить теги', ['/post/set-tags'.'?id=' . $id], ['class' => 'btn LoveButt']) ?>
         <a class="btn LoveButt" href="<?=Url::to($urlUpdate);?>"><div>Изменить запись</div> </a>
     </div>
-
 </div>
 

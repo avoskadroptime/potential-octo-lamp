@@ -54,7 +54,6 @@ main{
     background-color: #ffffff;
 }
 .ooo{
-
     position: sticky;
     top: 45px;
 }
@@ -70,7 +69,6 @@ main{
 }
 .left-nav-Menu{
     margin-top: 12px;
-    background: linear-gradient(180deg, #F9F9F7 0%, rgba(249, 249, 247, 0) 100%), #E9EAEA;
     box-shadow: 0 25px 25px -2px rgba(0, 0, 0, 0.17);
 }
 .left-nav-tags{
@@ -418,7 +416,6 @@ main{
 .OnePost_butt{
     display: flex;
     gap: 35px;
-
 }
 .OnePost_page{
     display: flex;
@@ -427,16 +424,13 @@ main{
     margin: 0 auto;
 }
 .viewOnePost{
-
     margin-left: 50px;
     margin-top: 25px;
     max-width: 817px;
     min-height: 300px;
-
     background: linear-gradient(180deg, #F9F9F7 0%, rgba(249, 249, 247, 0) 100%), #E9EAEA;
-    box-shadow: 0px 5px 27px 3px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 5px 27px 3px rgba(0, 0, 0, 0.17);
     backdrop-filter: blur(2px);
-    /* Note: backdrop-filter has minimal browser support */
     border-radius: 31px;
 }
 .OnePost_block{

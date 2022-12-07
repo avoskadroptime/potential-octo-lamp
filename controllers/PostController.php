@@ -164,7 +164,6 @@ class PostController extends Controller
             return $this->redirect(['site/one-post', 'id'=>$post->id] );
         }
 
-
         return $this->render('tags',[
             'selectedTags' => $selectedTags,
             'tags' => $tags,

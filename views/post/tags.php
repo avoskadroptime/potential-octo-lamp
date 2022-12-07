@@ -22,7 +22,6 @@ use app\controllers\PostController;
     <?php $form = ActiveForm::begin(); ?>
     <div class="mb-3">
         <?php
-        // Tagging support Multiple
         echo '<label class="control-label">Выбрать теги</label>';
         echo   Select2::widget(  [
             'name' => 'tags',
@@ -34,7 +33,7 @@ use app\controllers\PostController;
                 'tokenSeparators' => [',', ' '],
                 'maximumInputLength' => 10
             ],
-        ])/*->label('Tag Multiple');*/ ;
+        ])
         ?>
     </div>
     <div> Чтобы добавить новый тег перейдите  <?= Html::a('по ссылке', Url::to(['/tag/create'])) ?> </div>

@@ -11,7 +11,7 @@ $this->title = 'Все ваши записи';
 //\yii\helpers\VarDumper::dump($posts,10,true);
 //\yii\helpers\VarDumper::dump($one->selectedTags,10,true);
 ?>
-<h1>Все ваши записи в журнале</h1>
+<h1>Все ваши записи</h1>
 <a class="btn LoveButt" href="<?=Url::to(['post/create']);?>"><div>Создать новую запись</div> </a>
 <div class="row">
     <?php foreach ($posts as $one): ?>
@@ -22,9 +22,7 @@ $this->title = 'Все ваши записи';
                 <h2><?=$one->title?></h2></a>
             <div class="OnePost_text rowPost_text">
                 <?php $lilo = strip_tags($one->text)?>
-
                 <?= Html::encode($lilo = \yii\helpers\StringHelper::truncate($lilo, 150, '...')); ?>
-
             </div>
         </div>
         <?php if($one->getTagsAsString()!=Null) {?>
